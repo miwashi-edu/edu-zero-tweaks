@@ -2,9 +2,11 @@
 
 ## Upgrade system
 
+> sudo apt full-upgrade upgrades all installed packages to their latest available versions, but unlike `apt upgrade`, it's allowed to add or remove packages if that's what's needed to resolve dependencies. A regular `apt upgrade` will skip a package rather than touch the dependency graph; `full-upgrade` will go through with it.
+
 ```bash
-sudo apt update
-sudo apt full-upgrade
+sudo apt update # refresh the package index
+sudo apt full-upgrade  # apply all upgrades
 ```
 
 ## VIM
@@ -41,10 +43,13 @@ sudo apt full-upgrade
 ```bash
 cd ~
 cat > .vimrc << EOF
+"compatiblity
 set nocompatible
 syntax on
 set number
 set relativenumber
+
+"visual comfort
 set cursorline
 set scrolloff=5
 set nowrap
@@ -62,3 +67,11 @@ set ttyfast
 set updatetime=300
 EOF
 ```
+### Toggle numbers when copy/pasting in VIM
+
+```txt
+ESC
+:set nonumber
+:set number
+```
+
