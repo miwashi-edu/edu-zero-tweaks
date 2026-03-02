@@ -74,4 +74,60 @@ ESC
 :set nonumber
 :set number
 ```
+## Starship (If we don't install Zsh)
+
+```bash
+curl -sS https://starship.rs/install.sh | sh
+echo 'eval "$(starship init bash)"' >> ~/.bashrc
+source ~/.bashrc
+```
+
+## Zsh (zeeshell)
+
+```bash
+sudo apt install zsh
+chsh -s $(which zsh)
+```
+
+## Git
+
+```bash
+git config --global alias.tree "log --oneline --graph --all --decorate"
+```
+
+## Tools
+
+```bash
+# ls replacement
+sudo apt install lsd
+# ls replacement
+sudo apt install eza
+# cat replacement batcat
+sudo apt install bat
+# top replacement
+sudo apt install htop
+```
+
+## Time
+
+> These doesn't work in docker.
+
+```bash
+sudo timedatectl set-ntp true
+sudo timedatectl set-timezone Europe/Stockholm
+```
+
+## SSH
+
+> By removing reverse DNS, we can speed up SSH
+> CAREFUL mDNS might stop working
+
+```bash
+sudo sed -i 's/#ClientAliveInterval 0/ClientAliveInterval 60/' /etc/ssh/sshd_config
+sudo sed -i 's/#ClientAliveCountMax 3/ClientAliveCountMax 3/' /etc/ssh/sshd_config
+sudo sed -i 's/#UseDNS no/UseDNS no/' /etc/ssh/sshd_config
+sudo systemctl restart sshd
+# Check
+grep -E 'ClientAlive|UseDNS' /etc/ssh/sshd_config
+```
 
