@@ -88,7 +88,11 @@ chsh -s $(which zsh)
 ## Git
 
 ```bash
+sudo apt-get install git
 git config --global alias.tree "log --oneline --graph --all --decorate"
+git config --global init.defaultBranch main
+git config --global user.name "Your Name"
+git config --global user.email "you@example.com"
 ```
 
 ## Tools
