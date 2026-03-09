@@ -43,13 +43,11 @@ sudo apt full-upgrade  # apply all upgrades
 ```bash
 cd ~
 cat > .vimrc << EOF
-"compatiblity
+
 set nocompatible
 syntax on
 set number
-set relativenumber
 
-"visual comfort
 set cursorline
 set scrolloff=5
 set nowrap
@@ -59,9 +57,7 @@ set expandtab
 set smartindent
 set colorcolumn=80
 set background=dark
-colorscheme desert
 
-" performance
 set lazyredraw
 set ttyfast
 set updatetime=300
